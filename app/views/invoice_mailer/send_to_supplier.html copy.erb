@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <table class="text-left w-full">
+      <thead>
+        <tr>
+          <th class="px-4 py-2">ID</th>
+          <th class="px-4 py-2">PO Number</th>
+          <th class="px-4 py-2">Order Number</th>
+          <th class="px-4 py-2">Supplier Name</th>
+          <th class="px-4 py-2">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invoices.each do |invoice| %>
+          <tr>
+            <td class="border px-4 py-2"><%= invoice.id %></td>
+            <td class="border px-4 py-2"><%= invoice.po_number %></td>
+            <td class="border px-4 py-2"><%= invoice.order_number %></td>
+            <td class="border px-4 py-2"><%= invoice.supplier_name %></td>
+            <td class="border px-4 py-2"><%= invoice.amount %></td>
+        <%end%>
+      </tbody>
+    </table>
+    <%
+=begin%>
+ <p>You got a new order from <%= @order.name %>!</p>
+    <p>
+    Order details<br>
+    --------------------------
+    </p>
+    <p>Name: <%= @order.name %></p>
+    <p>Email: <%= @order.email %></p>
+    <p>Address: <%= @order.address %></p>
+    <p>Phone: <%= @order.phone %></p>
+    <p>
+    Message:<br>
+    ----------
+    </p>
+    <p><%= @order.message %></p> 
+<%
+=end%>
+  </body>
+</html>

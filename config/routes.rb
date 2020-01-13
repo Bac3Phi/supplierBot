@@ -1,14 +1,18 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   resources :posts
-    authenticate :user, lambda { |u| u.admin? } do
-      mount Sidekiq::Web => '/sidekiq'
-    end
 
-
-  devise_for :users, controller: {
-    registrations: "registrations"
-  }
+  devise_for :users
+  
   root to: 'posts#index'
+
+  resources :profiles do
+    post :import, on: :collection
+    delete :destroy_all, on: :collection
+  end
+
+  resources :invoices do
+    post :import, on: :collection
+    delete :destroy_all, on: :collection
+    post :send_emails, on: :collection
+  end
 end
