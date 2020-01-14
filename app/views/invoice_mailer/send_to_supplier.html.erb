@@ -4,6 +4,37 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Hello fFI</p>
+    <p>Dear <%= @profile.name %>,</p>
+    <br/>
+    <p>Could you please send us the invoice for the PO below to email vietnam_desipro_goods@decathlon.com ?</p>
+    <br/>
+    <p>Please disregard this email if you have recently sent us the invoices for the orders below. We apologize for any confusion caused.</p>
+    <br/>
+    <table border="1">
+      <thead>
+        <tr style=" background: yellow; ">
+          <th>PO Number</th>
+          <th>Order Number</th>
+          <th>Supplier Name</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invoices.each do |invoice| %>
+          <tr>
+            <td><%= invoice.po_number %></td>
+            <td><%= invoice.order_number %></td>
+            <td><%= invoice.supplier_name %></td>
+            <td><%= invoice.amount %></td>
+        <%end%>
+      </tbody>
+    </table>
+    <br>
+    <strong>Thank you and best regards</strong>
+    <p>--</p>
+    <strong>NGUYEN Ngoc Nhu Quynh</strong>
+    <p>Accountant - DAF</p>
+    <p>Tel: (+84) 0906887382</p>
+    <p>Email: quynhngocnhu.nguyen@decathlon.com</p>
   </body>
 </html>

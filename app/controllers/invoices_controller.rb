@@ -20,9 +20,8 @@ class InvoicesController < ApplicationController
   end
 
   def send_emails
-    InvoiceMailer.send_to_supplier('THAIBINH GROUP').deliver_later
-    # Invoice.has_supplier.each do |supplier|
-    #   InvoiceMailer.send_to_supplier(supplier).deliver_now
-    # end
+    Invoice.has_supplier.each do |supplier|
+      InvoiceMailer.send_to_supplier(supplier).deliver_now
+    end
   end
 end
