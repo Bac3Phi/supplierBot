@@ -21,7 +21,7 @@ class InvoicesController < ApplicationController
 
   def send_emails
     Invoice.has_supplier.each do |supplier|
-      InvoiceMailer.send_to_supplier(supplier).deliver_now
+      InvoiceMailer.send_to_supplier(supplier).deliver_later
     end
   end
 end
