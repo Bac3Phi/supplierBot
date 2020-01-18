@@ -23,5 +23,7 @@ class InvoicesController < ApplicationController
     Invoice.has_supplier.each do |supplier|
       InvoiceMailer.send_to_supplier(supplier).deliver_later
     end
+
+    redirect_to invoices_url, notice: 'Email has been sent'
   end
 end

@@ -13,7 +13,7 @@ class InvoiceMailer < ApplicationMailer
       cc_emails << m.last
     end
 
-    subject = "#{@profile.name.upcase} - MISSING INVOICE #{Date.current}"
+    subject = "#{@profile.company_name.upcase} - MISSING INVOICE #{Date.current}"
 
     mail_params = {
       to: email,
