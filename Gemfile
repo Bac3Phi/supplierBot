@@ -32,7 +32,8 @@ gem 'dotenv'
 
 gem 'roo'
 gem 'inum', '~> 5.2'
-
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
